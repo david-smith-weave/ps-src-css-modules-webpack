@@ -1,5 +1,19 @@
 @import "./config.module.css";
 
+@keyframes pulse {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  15% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
 .root {
   position: absolute;
   top: 0;
@@ -20,7 +34,14 @@
   cursor: pointer;
   user-select: none;
   outline: 0;
+  animation: pulse 1s infinite;
 }
+
+.btn:hover {
+  transition: all 1s;
+  color: #8c9ea3;
+}
+
 .prev {
   composes: btn;
   text-align: left;
@@ -28,4 +49,16 @@
 .next {
   composes: btn;
   text-align: right;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.prevHidden {
+  composes: prev hidden;
+}
+
+.nextHidden {
+  composes: next hidden;
 }
